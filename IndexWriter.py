@@ -8,14 +8,13 @@ import shutil
 from os import listdir
 from collections import OrderedDict
 
-#something
-
 class IndexWriter:
-    #__block_size_limit = 2147483648 # 2GB
+    __block_size_limit = 2147483648 # 2GB
     #__block_size_limit = 1073741824 # 1GB
     #__block_size_limit = 750000  # default block size (in bytes) 0.75 MB
-    __block_size_limit = 100000  # default block size (in bytes) 0.75 MB
+    #__block_size_limit = 100000  #
     __dir =""
+    __compressedDictionary = list()
     def __init__(self, inputFile, dir):
 
         """Given a collection of documents, creates an on disk index
@@ -25,9 +24,10 @@ class IndexWriter:
         self.__dir = dir
         if not os.path.exists(dir):
             os.mkdir(dir)
-        file = open(inputFile, "r")
         if os.path.exists(dir + 'spimi_inverted_index.txt'):
             os.remove(dir + 'spimi_inverted_index.txt' )
+
+        file = open(inputFile, "r")
         self.SPIMI_Invert(file)
 
         print("=============== Merging SPIMI blocks into final inverted index... ===============")
@@ -105,13 +105,15 @@ class IndexWriter:
         """ Add term frequency of term in each document """
         # print(pl_with_duplicates)
         counter = collections.Counter(pl_with_duplicates)
+
         pl_tftd = [[int(docId), counter[docId]] for docId in counter.keys()]
+
         return pl_tftd
 
     def write_block_to_disk(self,term_postings_list, block_number):
         """ Writes index of the block (dictionary + postings list) to disk """
         # Define block
-        base_path = 'index_blocks/'
+        base_path = self.__dir # 'index_blocks/'
         block_name = 'block-' + str(block_number) + '.txt'
         block = open(base_path + block_name, 'a+')
         print(" -- Writing term-positing list block: " + block_name + "...")
@@ -120,6 +122,7 @@ class IndexWriter:
             # Term - Posting List Format
             # term:[docID1, docID2, docID3]
             # e.g. cat:[4,9,21,42]
+
             block.write(str(term) + ":" + str((term_postings_list[term])) + "\n")
         block.close()
 
@@ -194,8 +197,8 @@ class IndexWriter:
             for directory in directories:
                 shutil.rmtree(os.path.join(root, directory))
 
-
-
-indexW = IndexWriter('/Users/yairwygoda/Desktop/100.txt','index_blocks/')
+alanspath="C:/Users/alany/OneDrive/Desktop/files/100.txt"
+mypath = '/Users/yairwygoda/Desktop/10000000.txt'
+indexW = IndexWriter(mypath ,'index_blocks/')
 #print("deleting index files and directory")
 #indexW.removeIndex('index_blocks/')
