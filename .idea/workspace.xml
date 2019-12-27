@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="134fe47c-8555-4e2a-ab51-322bc0723a0d" name="Default" comment="add index">
-      <change beforePath="$PROJECT_DIR$/.idea/Web_Queries.iml" afterPath="$PROJECT_DIR$/.idea/Web_Queries.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/IndexWriter.py" afterPath="$PROJECT_DIR$/IndexWriter.py" />
-    </list>
+    <list default="true" id="134fe47c-8555-4e2a-ab51-322bc0723a0d" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -136,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577439840411</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="check">
+      <created>1577440495343</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1577440495343</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -166,7 +168,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add index" />
-    <option name="LAST_COMMIT_MESSAGE" value="add index" />
+    <MESSAGE value="check" />
+    <option name="LAST_COMMIT_MESSAGE" value="check" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
