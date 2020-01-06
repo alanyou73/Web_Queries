@@ -12,6 +12,29 @@ class IndexReader:
         index files are located."""
 
 
+        """
+        recreate self.__dictionary = {}
+        where : the keys are the terms from "index_blocks/compressed_dictionary.txt"
+                the value is dictionary where keys are : "sizePL" : posting list size in bytes
+                                                         "sizeFreq" : term frequency list
+                                                         "location" : pointer to the location of the posting list in the block on disk
+       
+        steps:
+        1.a.read compressed_dictionary from disk # 
+          b.read table_byte_array.txt from disk  # x = read_bytes_from_disk("index_blocks/table_byte_array.txt")
+          c.turn it into array
+          d.decompress compressed_dictionary # get_terms_list(compressed_dictionary,x)
+        
+        2.a.read index_blocks/posting_lists_size_in_inverted_index.txt and 
+          b.read index_blocks/frequencies_lists_size_in_inverted_index.txt
+          c.read index_blocks/location_pointer_to_posting_freq_lists_in_inverted_index.txt
+        3.turn all 3 back to a list
+        4. recreate self.__dictionary = {}
+        
+          
+           
+        """
+
 
 
 
