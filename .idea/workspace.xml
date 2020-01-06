@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="134fe47c-8555-4e2a-ab51-322bc0723a0d" name="Default" comment="added alan's path for testing">
+    <list default="true" id="134fe47c-8555-4e2a-ab51-322bc0723a0d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/IndexReader.py" afterPath="$PROJECT_DIR$/IndexReader.py" />
       <change beforePath="$PROJECT_DIR$/IndexWriter.py" afterPath="$PROJECT_DIR$/IndexWriter.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +20,8 @@
       <file leaf-file-name="IndexWriter.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/IndexWriter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7183">
-              <caret line="583" column="43" lean-forward="false" selection-start-line="583" selection-start-column="43" selection-end-line="583" selection-end-column="43" />
+            <state relative-caret-position="366">
+              <caret line="117" column="0" lean-forward="true" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -122,8 +121,8 @@
         <option value="$PROJECT_DIR$/Dictionary.py" />
         <option value="$PROJECT_DIR$/PostingList.py" />
         <option value="$PROJECT_DIR$/IndexReader.py" />
-        <option value="$PROJECT_DIR$/IndexWriter.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/IndexWriter.py" />
       </list>
     </option>
   </component>
@@ -155,11 +154,6 @@
             <path>
               <item name="Web_Queries" type="b2602c69:ProjectViewProjectNode" />
               <item name="Web_Queries" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Web_Queries" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Web_Queries" type="462c0819:PsiDirectoryNode" />
-              <item name="index_blocks" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -239,7 +233,21 @@
       <option name="project" value="LOCAL" />
       <updated>1577446138476</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added methods IndexWriter.py:&#10;create_block_dictionary - given an unordered dictionary ( where, keys are the terms and value is posting list with duplicates)&#10;                        1. writes block on disk ( using write_byte_array_block_to_disk() )&#10;                        2.returns block ordered dictionary where the key is the term&#10;                        and value is a dictionary with keys and values as follows, &quot;sizePL&quot; : posting list size in bytes&#10;                                                                                   &quot;sizeFreq&quot; : term frequency list&#10;                                                                                   &quot;location&quot; : pointer to the location of the posting list in the block on disk&#10;&#10;block_to_byte_array() - helper method for create_block_dictionary&#10;                         creating a byte array of posting list and frequency list,&#10;                         creates , blockPtrs[&quot;pl_freq_byteArray&quot;] ,   blockPtrs[&quot;sizePL&quot;] , blockPtrs[&quot;sizeFreq&quot;]&#10;                         and returns blockPtrs&#10;&#10;write_byte_array_block_to_disk - given a block number ,  writes posting list and frequency list  byte array to disk ,  where the file name is : 'block-' + str(block_number) + '.txt'&#10;&#10;convert_bytes_block -  given a block number, converts an entire block of bytes from disk into,posting-frequency list&#10;                       and returns a block_dictionary with term as key and [&quot;posting_list .... , frequency_list.... ]  as value&#10;&#10;read_bytes_posting_list_from_disk - helper method for convert_bytes_block ,&#10;                                    reads block bytes from disk&#10;                                    and returns posting_frequency_list&#10;&#10;&#10;delete_block -  given a block number removes block from disk&#10;&#10;posting_list_with_duplicates - given a postings_list and a frequencies_list returns one postings list with duplicates&#10;&#10;merge - Merges SPIMI blocks into final inverted index&#10;&#10;helper methods for merge():&#10;    merge_two_blocks - given numbers of two blocks creates a merged block of the two on disk&#10;&#10;write_byte_array_on_disk - given a byte array and a file name, creates a file named file_name and writes byte array in it&#10;&#10;&#10;removed methods: sort_terms , calculate_tftd , write_block_to_disk">
+      <created>1578312984763</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1578312984763</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added methods IndexWriter.py:&#10;create_block_dictionary - given an unordered dictionary ( where, keys are the terms and value is posting list with duplicates)&#10;                        1. writes block on disk ( using write_byte_array_block_to_disk() )&#10;                        2.returns block ordered dictionary where the key is the term&#10;                        and value is a dictionary with keys and values as follows, &quot;sizePL&quot; : posting list size in bytes&#10;                                                                                   &quot;sizeFreq&quot; : term frequency list&#10;                                                                                   &quot;location&quot; : pointer to the location of the posting list in the block on disk&#10;&#10;block_to_byte_array() - helper method for create_block_dictionary&#10;                         creating a byte array of posting list and frequency list,&#10;                         creates , blockPtrs[&quot;pl_freq_byteArray&quot;] ,   blockPtrs[&quot;sizePL&quot;] , blockPtrs[&quot;sizeFreq&quot;]&#10;                         and returns blockPtrs&#10;&#10;write_byte_array_block_to_disk - given a block number ,  writes posting list and frequency list  byte array to disk ,  where the file name is : 'block-' + str(block_number) + '.txt'&#10;&#10;convert_bytes_block -  given a block number, converts an entire block of bytes from disk into,posting-frequency list&#10;                       and returns a block_dictionary with term as key and [&quot;posting_list .... , frequency_list.... ]  as value&#10;&#10;read_bytes_posting_list_from_disk - helper method for convert_bytes_block ,&#10;                                    reads block bytes from disk&#10;                                    and returns posting_frequency_list&#10;&#10;&#10;delete_block -  given a block number removes block from disk&#10;&#10;posting_list_with_duplicates - given a postings_list and a frequencies_list returns one postings list with duplicates&#10;&#10;merge - Merges SPIMI blocks into final inverted index&#10;&#10;helper methods for merge():&#10;    merge_two_blocks - given numbers of two blocks creates a merged block of the two on disk&#10;&#10;write_byte_array_on_disk - given a byte array and a file name, creates a file named file_name and writes byte array in it&#10;&#10;&#10;removed methods: sort_terms , calculate_tftd , write_block_to_disk">
+      <created>1578313098590</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1578313098591</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -257,8 +265,8 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12772134" sideWeight="0.49543676" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42764017" sideWeight="0.50831527" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27109975" sideWeight="0.49168473" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27109975" sideWeight="0.51088536" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27109975" sideWeight="0.48911467" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.49746928" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38618925" sideWeight="0.49457702" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -281,7 +289,8 @@
     <MESSAGE value="add index" />
     <MESSAGE value="check" />
     <MESSAGE value="added alan's path for testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="added alan's path for testing" />
+    <MESSAGE value="added methods IndexWriter.py:&#10;create_block_dictionary - given an unordered dictionary ( where, keys are the terms and value is posting list with duplicates)&#10;                        1. writes block on disk ( using write_byte_array_block_to_disk() )&#10;                        2.returns block ordered dictionary where the key is the term&#10;                        and value is a dictionary with keys and values as follows, &quot;sizePL&quot; : posting list size in bytes&#10;                                                                                   &quot;sizeFreq&quot; : term frequency list&#10;                                                                                   &quot;location&quot; : pointer to the location of the posting list in the block on disk&#10;&#10;block_to_byte_array() - helper method for create_block_dictionary&#10;                         creating a byte array of posting list and frequency list,&#10;                         creates , blockPtrs[&quot;pl_freq_byteArray&quot;] ,   blockPtrs[&quot;sizePL&quot;] , blockPtrs[&quot;sizeFreq&quot;]&#10;                         and returns blockPtrs&#10;&#10;write_byte_array_block_to_disk - given a block number ,  writes posting list and frequency list  byte array to disk ,  where the file name is : 'block-' + str(block_number) + '.txt'&#10;&#10;convert_bytes_block -  given a block number, converts an entire block of bytes from disk into,posting-frequency list&#10;                       and returns a block_dictionary with term as key and [&quot;posting_list .... , frequency_list.... ]  as value&#10;&#10;read_bytes_posting_list_from_disk - helper method for convert_bytes_block ,&#10;                                    reads block bytes from disk&#10;                                    and returns posting_frequency_list&#10;&#10;&#10;delete_block -  given a block number removes block from disk&#10;&#10;posting_list_with_duplicates - given a postings_list and a frequencies_list returns one postings list with duplicates&#10;&#10;merge - Merges SPIMI blocks into final inverted index&#10;&#10;helper methods for merge():&#10;    merge_two_blocks - given numbers of two blocks creates a merged block of the two on disk&#10;&#10;write_byte_array_on_disk - given a byte array and a file name, creates a file named file_name and writes byte array in it&#10;&#10;&#10;removed methods: sort_terms , calculate_tftd , write_block_to_disk" />
+    <option name="LAST_COMMIT_MESSAGE" value="added methods IndexWriter.py:&#10;create_block_dictionary - given an unordered dictionary ( where, keys are the terms and value is posting list with duplicates)&#10;                        1. writes block on disk ( using write_byte_array_block_to_disk() )&#10;                        2.returns block ordered dictionary where the key is the term&#10;                        and value is a dictionary with keys and values as follows, &quot;sizePL&quot; : posting list size in bytes&#10;                                                                                   &quot;sizeFreq&quot; : term frequency list&#10;                                                                                   &quot;location&quot; : pointer to the location of the posting list in the block on disk&#10;&#10;block_to_byte_array() - helper method for create_block_dictionary&#10;                         creating a byte array of posting list and frequency list,&#10;                         creates , blockPtrs[&quot;pl_freq_byteArray&quot;] ,   blockPtrs[&quot;sizePL&quot;] , blockPtrs[&quot;sizeFreq&quot;]&#10;                         and returns blockPtrs&#10;&#10;write_byte_array_block_to_disk - given a block number ,  writes posting list and frequency list  byte array to disk ,  where the file name is : 'block-' + str(block_number) + '.txt'&#10;&#10;convert_bytes_block -  given a block number, converts an entire block of bytes from disk into,posting-frequency list&#10;                       and returns a block_dictionary with term as key and [&quot;posting_list .... , frequency_list.... ]  as value&#10;&#10;read_bytes_posting_list_from_disk - helper method for convert_bytes_block ,&#10;                                    reads block bytes from disk&#10;                                    and returns posting_frequency_list&#10;&#10;&#10;delete_block -  given a block number removes block from disk&#10;&#10;posting_list_with_duplicates - given a postings_list and a frequencies_list returns one postings list with duplicates&#10;&#10;merge - Merges SPIMI blocks into final inverted index&#10;&#10;helper methods for merge():&#10;    merge_two_blocks - given numbers of two blocks creates a merged block of the two on disk&#10;&#10;write_byte_array_on_disk - given a byte array and a file name, creates a file named file_name and writes byte array in it&#10;&#10;&#10;removed methods: sort_terms , calculate_tftd , write_block_to_disk" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -345,6 +354,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -471,8 +481,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/IndexWriter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7183">
-          <caret line="583" column="43" lean-forward="false" selection-start-line="583" selection-start-column="43" selection-end-line="583" selection-end-column="43" />
+        <state relative-caret-position="366">
+          <caret line="117" column="0" lean-forward="true" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

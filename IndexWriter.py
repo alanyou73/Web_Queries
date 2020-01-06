@@ -114,6 +114,8 @@ class IndexWriter:
 
         print("=============== INVERTED INDEX FILES ARE ON DISK ===============")
 
+
+
         print("=============== INVERTED INDEX BUILD COMPLETED ===============")
 
 
