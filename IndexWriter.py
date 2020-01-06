@@ -292,12 +292,6 @@ class IndexWriter:
         #print(block_dictionary)
         return block_dictionary
 
-        ##########            TO BE CONTINUED                     ########
-        ##########            TO BE CONTINUED                     ########
-        ##########            TO BE CONTINUED                     ########
-        ##########            TO BE CONTINUED                     ########
-
-
     #################################################
 
     def read_bytes_posting_list_from_disk(self,block_path_and_directory,pointers):
