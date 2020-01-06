@@ -1,3 +1,8 @@
+from Dictionary import *
+from PostingList import *
+from IndexWriter import *
+
+
 class IndexReader:
 
     def __init__(self, dir):
@@ -5,6 +10,12 @@ class IndexReader:
         the given directory
         dir is the name of the directory in which all
         index files are located."""
+
+
+
+
+
+
     def getTokenFrequency(self, token):
         """Return the number of documents containing a
         given token (i.e., word)
