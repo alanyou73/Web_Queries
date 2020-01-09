@@ -12,16 +12,20 @@ from PostingList import *
 
 from os import listdir
 from collections import OrderedDict
+import time
+
+from datetime import datetime
+
 
 
 class IndexWriter:
-    ##using a 5 MB blcok size
-    __block_size_limit = 2147483648 # 2GB
+    __block_size_limit = 4294967296 # 4GB
+    #__block_size_limit = 2147483648 # 2GB
     #__block_size_limit = 1073741824 # 1GB
     #__block_size_limit = 536870912 # 0.5GB
     #__block_size_limit = 268435456 # 0.25GB
     #__block_size_limit = 107374182 # 0.1GB
-    #__block_size_limit = 5000000  # 5MB
+    #__block_size_limit = 3000000  # 1MB
 
 
     #__block_size_limit = 50000  # 50 KB
@@ -30,23 +34,37 @@ class IndexWriter:
     __dir =""
     __dictionary = {}
     __blocksDictionaries ={}
+    __number_of_documents = 0
+    ##  FOR TESTING PURPOSES   ##
+    __size_of_dic = 0
+    ####
+
     def __init__(self, inputFile, dir):
 
         """Given a collection of documents, creates an on disk index
         inputFile is the path to the file containing the review data (the path includes the filename itself)
         dir is the name of the directory in which all index files will be created
         if the directory does not exist, it should be created"""
+
+        ###for testing purposes
+        start = str(datetime.now().ctime())
+        print("starting time : " + start)
+
+
         self.__dir = dir
         if not os.path.exists(dir):
             os.mkdir(dir)
         if os.path.exists(dir + 'spimi_inverted_index.txt'):
             os.remove(dir + 'spimi_inverted_index.txt' )
 
-        file = open(inputFile, "r")
-        self.SPIMI_Invert(file)
+
+        #file = open(inputFile, "r")
+        with open(inputFile, 'r') as file:
+            self.SPIMI_Invert(file)
+        #file.close()
 
         #print(self.__dictionary)
-        print("\ntable size is : {} megabytes ".format(sys.getsizeof(self.__dictionary)*10**(-6)))
+        print("\ntable size is : {} megabytes ".format(self.__size_of_dic*10**(-6)))
 
         ################
         print("=============== Merging SPIMI blocks into final inverted index... ===============")
@@ -60,6 +78,16 @@ class IndexWriter:
 
         os.rename(dir + "block-0.txt", dir + "spimi_inverted_index.txt")# renaming block-0
 
+        os.rename(dir + "posting_lists_size_in_inverted_index-block-0.txt", dir + "posting_lists_size_in_inverted_index.txt")# renaming block-0
+        os.rename(dir + "frequencies_lists_size_in_inverted_index-block-0.txt", dir + "frequencies_lists_size_in_inverted_index.txt")# renaming block-0
+        os.rename(dir + "location_pointer_to_posting_freq_lists_in_inverted_index-block-0.txt", dir + "location_pointer_to_posting_freq_lists_in_inverted_index.txt")# renaming block-0
+
+
+
+
+        print("completed spimi at : ", datetime.now().ctime())
+
+
         print("SPIMI completed! All blocks merged into final index: spimi_inverted_index.txt")
         final_dic = self.__blocksDictionaries.popitem()## self.__blocksDictionaries is emptied
         self.__dictionary = final_dic[1]
@@ -67,7 +95,7 @@ class IndexWriter:
 
 
         dict = list(self.__dictionary.keys())
-        print(dict)
+        #print(dict)
 
         compressed_dictionary = Dictionary(dict, "STR")
         #create a file and write compressed_dictionary.GetString() in it (on disk)
@@ -80,107 +108,86 @@ class IndexWriter:
         table_byte_array = VBEncode(compressed_dictionary.GetTable())
         write_byte_array_on_disk(table_byte_array ,dir ,  "table_byte_array")
 
+        ## write number of documents on disk
+        text_file = open(dir + "number_of_documents.txt", "w")
+        print(" -- Writing  : number_of_documents ...")
+        text_file.write(str(self.__number_of_documents))
+        text_file.close()
 
-        # turn  "sizePL" ,"sizeFreq" ,"location" of each term in __dictionary into a separate list
-        posting_lists_size_in_spimi_inverted_index = []
-        frequencies_lists_size_in_spimi_inverted_index = []
-        location_pointer_to_posting_freq_lists_in_spimi_inverted_index = []
-
-        for ptr in self.__dictionary.values():
-            posting_lists_size_in_spimi_inverted_index.append(ptr["sizePL"])
-            frequencies_lists_size_in_spimi_inverted_index.append(ptr["sizeFreq"])
-            location_pointer_to_posting_freq_lists_in_spimi_inverted_index.append(ptr["location"])
-
-        ## turn all three lists to byte array
-        posting_lists_size_in_spimi_inverted_index_byte_array = VBEncode(posting_lists_size_in_spimi_inverted_index)
-        frequencies_lists_size_in_spimi_inverted_index_byte_array =  VBEncode(frequencies_lists_size_in_spimi_inverted_index)
-        location_pointer_to_posting_freq_lists_in_spimi_inverted_index_to_gaps = calculateGaps(location_pointer_to_posting_freq_lists_in_spimi_inverted_index)
-        location_pointer_to_posting_freq_lists_in_spimi_inverted_index_byte_array = VBEncode(location_pointer_to_posting_freq_lists_in_spimi_inverted_index_to_gaps)
-
-        # write posting_lists_size_in_spimi_inverted_index_byte_array in it (on disk)
-        write_byte_array_on_disk(posting_lists_size_in_spimi_inverted_index_byte_array ,dir, "posting_lists_size_in_inverted_index")
-        # write frequencies_lists_size_in_spimi_inverted_index_byte_array in it (on disk)
-        write_byte_array_on_disk(frequencies_lists_size_in_spimi_inverted_index_byte_array ,dir, "frequencies_lists_size_in_inverted_index")
-        # write location_pointer_to_posting_freq_lists_in_spimi_inverted_index_byte_array in it (on disk)
-        write_byte_array_on_disk(location_pointer_to_posting_freq_lists_in_spimi_inverted_index_byte_array,dir,"location_pointer_to_posting_freq_lists_in_inverted_index")
-
+        print("starting time was : " + start)
+        print("ending time : ", datetime.now().ctime())
 
         print("=============== INVERTED INDEX FILES ARE ON DISK ===============")
-
-
-
         print("=============== INVERTED INDEX BUILD COMPLETED ===============")
 
-        print(self.__dictionary["going"])
-
-
-
-
-        ###############################
 
 
 
     #####################################
+    #####################################
     def SPIMI_Invert(self,file):
         """ Applies the Single-pass in-memory indexing algorithm """
+
         block_number = 0
         dictionary = {}  # (term - postings list)
-        docID = 1
+        docID = 0
         size_of_block = sys.getsizeof(dictionary)
+        #f = file.read(1000000).split()
+        #print(f)
         for doc in file:
+            #print(doc)
+            if doc  == '*' *  80 + '\n':  #
+                docID+=1
+            else:
+                #print(docID)
+                docAsList = doc.split()  # convert the document a list of strings
 
-            currDoc = ''.join(e for e in doc if e.isalnum())
-            if currDoc == '':
-                continue  # do not enumerate asterisks, new lines or empty documents
-
-            docAsList = doc.split()  # convert the document a list of strings
-
-            term=''
-            for word in docAsList:
-                if word.isalnum():  # word is alphanumeric
-                    term = word.lower()
-                else:  # word is NOT alphanumeric
-                    tempWord = ''
-                    for char in word:
-                        if char.isalnum():
-                            tempWord += char
-                        elif tempWord != '':
+                term = ''
+                for word in docAsList:
+                    if word.isalnum():  # word is alphanumeric
+                        term = word.lower()
+                    else:  # word is NOT alphanumeric
+                        tempWord = ''
+                        for char in word:
+                            if char.isalnum():
+                                tempWord += char
+                            elif tempWord != '':
+                                term = tempWord.lower()
+                                tempWord = ''
+                        if tempWord != '':
                             term = tempWord.lower()
-                            tempWord = ''
-                    if tempWord != '':
-                        term = tempWord.lower()
-                ## new Term ##
-                # If term occurs for the first time
-                if term not in dictionary:
-                    dictionary[term] = [docID] # Add term to dictionary, create new postings list, and add docID
-                    size_of_block += sys.getsizeof(term) +sys.getsizeof([]) + sys.getsizeof(docID)
-                    #if term not in self.__dictionary:
-                    #    self.__dictionary[term] = []
-                else: # If term has a subsequent occurence
-                    dictionary[term].append(docID)  # Add a posting (docID) to the existing posting list of the term
-                    size_of_block += sys.getsizeof(docID)
+                    ## new Term ##
+                    # If term occurs for the first time
+                    if term not in dictionary:
+                        dictionary[term] = [docID]  # Add term to dictionary, create new postings list, and add docID
+                        size_of_block += sys.getsizeof(term) + sys.getsizeof([]) + sys.getsizeof(docID)
+                        # if term not in self.__dictionary:
+                        #    self.__dictionary[term] = []
+                    else:  # If term has a subsequent occurence
+                        dictionary[term].append(docID)  # Add a posting (docID) to the existing posting list of the term
+                        size_of_block += sys.getsizeof(docID)
 
+                if size_of_block > self.__block_size_limit:
+                    print("\nblock {} size is : {} megabytes ".format( block_number ,sys.getsizeof(dictionary) * 10 ** (-6)))
 
+                    self.__blocksDictionaries[block_number] = self.create_block_dictionary(dictionary,block_number)  # create block dictionary and write block of posting list and frequencies to disk
 
+                    block_number += 1
+                    dictionary = {}
+                    size_of_block = sys.getsizeof(dictionary)
 
-            if size_of_block > self.__block_size_limit :
-                #print("\nblock {} size is : {} megabytes ".format( block_number ,sys.getsizeof(dictionary) * 10 ** (-6)))
-                self.__blocksDictionaries[block_number] = self.create_block_dictionary(dictionary,block_number) # create block dictionary and write block of posting list and frequencies to disk
-                block_number += 1
-                dictionary = {}
-                size_of_block = sys.getsizeof(dictionary)
-            docID += 1# enumerate new doc
-        if size_of_block > 0 : # if dictionary's size is smaller than block size i.e. last block
-            #print("\nblock size is : {} megabytes ".format(block_number,sys.getsizeof(dictionary) * 10 ** (-6)))
+        if size_of_block > sys.getsizeof(dictionary) : # if dictionary's size is smaller than block size i.e. last block
+            print("\nblock size is : {} megabytes ".format(block_number,sys.getsizeof(dictionary) * 10 ** (-6)))
+
             self.__blocksDictionaries[block_number] = self.create_block_dictionary(dictionary,block_number) # create block dictionary and write block of posting list and frequencies to disk
 
+        self.__number_of_documents = docID
         #self.__dictionary = sorted(self.__dictionary)
 
     ##################################
     ##################################
-
-
     def create_block_dictionary(self,term_postings_list,block_number):
+
         """
 
         :param term_postings_list: a dictionary , keys are the terms , value is posting list with duplicates
@@ -191,44 +198,47 @@ class IndexWriter:
                                                                    "location" : pointer to the location of the posting list in the block on disk
 
         """
-
-        print("########## IN  create_block_dictionary ###############")
+        print("-- Creating block number {} ...".format(block_number))
+        print("creation block starting time : " + datetime.now().ctime())
         block_dictionary = {}
         blockByteArray = bytearray()
         sorted_terms = sorted(term_postings_list)
         pointer_to_postinglist_freqlist = 0
         for term in sorted_terms:
             # print(term)
-            if term == "going":
-                print("going here")
-                print(term_postings_list["going"])
 
-            ##IS THIS REALLY NEEDED???????
-            #result = [int(docIds) for docIds in term_postings_list[term]]  # a list of docIDs that contain the current term
-            ###      WHERE IS THE BYTE ARRAY STORED?????????//          ####
-            #block_dictionary[term] = self.block_to_byte_array(result) # term_postings_list[term]
             block_dictionary[term] = self.block_to_byte_array(term_postings_list[term])
-            if term == "going":
-                print(block_dictionary[term])
 
             block_dictionary[term]["location"] = pointer_to_postinglist_freqlist # location pointer
             pointer_to_postinglist_freqlist = block_dictionary[term]["location"] + block_dictionary[term]["sizePL"] + block_dictionary[term]["sizeFreq"]
-
-            ###############
-            # MAYBE KEEP IN THE DICTIONARY AS IS
-            # AND POP ENTIRE BLOCK AFTER
-            ###############
-
             blockByteArray+= block_dictionary[term]["pl_freq_byteArray"] ## append current byte array to block array
             block_dictionary[term].pop("pl_freq_byteArray")
-            ###############
 
+
+        ########       TESTING SIZE OF BLOCK DICTIONARY             ##########
+        size_of_block = sys.getsizeof({})
+        for term in block_dictionary.items():
+            #print(term[0])
+            size_of_block += sys.getsizeof(term[0]) + sys.getsizeof(term[1]["sizePL"]) + sys.getsizeof(term[1]["sizeFreq"]) + sys.getsizeof(term[1]["location"])
+            size_of_block += sys.getsizeof("sizePL") +sys.getsizeof("sizeFreq") +sys.getsizeof("location")
+            size_of_block += sys.getsizeof({})
 
         #print(block_dictionary)
-        #print("\nblock_dictionary {} size is : {} megabytes ".format(block_number, sys.getsizeof(block_dictionary) * 10 ** (-6)))
+        self.__size_of_dic+=size_of_block
+        size = size_of_block*10**(-6)
+        print("\nblock_dictionary {} size is : {} megabytes ".format(block_number, size ))
+        ########    END   TESTING SIZE OF BLOCK DICTIONARY             ##########
+
 
         ###write block to disk
         self.write_byte_array_block_to_disk(blockByteArray, block_number)
+        ###############
+
+        ## write block pointers to disk
+        self.write_block_pointers_to_disk(block_dictionary,block_number)
+
+
+        print("creation block ending time : " + datetime.now().ctime())
 
         return block_dictionary
 
@@ -247,17 +257,19 @@ class IndexWriter:
             frequencyList.append(counter[docId])
 
         ##compressing posting list  i.e.  list of docIDs
-        #print(currPostingList)
-        #print(frequencyList)
         copmressedCurrPLClass = PostingList(currPostingList, "V")
         copmressedCurrPL = copmressedCurrPLClass.GetList()
         blockPtrs["pl_freq_byteArray"] = copmressedCurrPL
         blockPtrs["sizePL"]= copmressedCurrPL.__len__()# size of bytearray content in bytes
 
-        ##compressing frequencyList i.e. frequency of each docID
+        ##compressing frequencyList i.e. frequency of term in each docID
         copmressedFreq = VBEncode(frequencyList)
         blockPtrs["pl_freq_byteArray"] += copmressedFreq
         blockPtrs["sizeFreq"]= copmressedFreq.__len__()# size of bytearray content in bytes
+
+        #######################
+        #
+        ######################
 
         #print(pl_with_duplicates)
         #print(blockPtrs)
@@ -280,6 +292,70 @@ class IndexWriter:
     #############################################################
     #############################################################
 
+    def write_block_pointers_to_disk(self,block_dictionary, block_number):
+        """
+
+        :param block_dictionary:
+        :param block_number:
+        :return:
+        """
+        # turn  "sizePL" ,"sizeFreq" ,"location" of each term in __dictionary into a separate list
+        posting_lists_size_in_spimi_inverted_index = []
+        frequencies_lists_size_in_spimi_inverted_index = []
+        location_pointer_to_posting_freq_lists_in_spimi_inverted_index = []
+        for ptr in block_dictionary.values():
+            posting_lists_size_in_spimi_inverted_index.append(ptr["sizePL"])
+            frequencies_lists_size_in_spimi_inverted_index.append(ptr["sizeFreq"])
+            location_pointer_to_posting_freq_lists_in_spimi_inverted_index.append(ptr["location"])
+
+        ## turn all three lists to byte array
+        posting_lists_size_in_spimi_inverted_index_byte_array = VBEncode(posting_lists_size_in_spimi_inverted_index)
+        frequencies_lists_size_in_spimi_inverted_index_byte_array =  VBEncode(frequencies_lists_size_in_spimi_inverted_index)
+        location_pointer_to_posting_freq_lists_in_spimi_inverted_index_to_gaps = calculateGaps(location_pointer_to_posting_freq_lists_in_spimi_inverted_index)
+        location_pointer_to_posting_freq_lists_in_spimi_inverted_index_byte_array = VBEncode(location_pointer_to_posting_freq_lists_in_spimi_inverted_index_to_gaps)
+
+        # write posting_lists_size_in_spimi_inverted_index_byte_array in it (on disk)
+
+        write_byte_array_on_disk(posting_lists_size_in_spimi_inverted_index_byte_array ,self.__dir, "posting_lists_size_in_inverted_index-block-{}".format(block_number))
+        # write frequencies_lists_size_in_spimi_inverted_index_byte_array in it (on disk)
+        write_byte_array_on_disk(frequencies_lists_size_in_spimi_inverted_index_byte_array ,self.__dir, "frequencies_lists_size_in_inverted_index-block-{}".format(block_number))
+        # write location_pointer_to_posting_freq_lists_in_spimi_inverted_index_byte_array in it (on disk)
+        write_byte_array_on_disk(location_pointer_to_posting_freq_lists_in_spimi_inverted_index_byte_array,self.__dir,"location_pointer_to_posting_freq_lists_in_inverted_index-block-{}".format(block_number))
+
+        ###################
+
+        for term in block_dictionary.keys():
+            block_dictionary[term] = 0 # remove pointers dictionary
+
+    ################################
+    ################################
+
+
+    def get_block_pointers_from_disk(self,block_number):
+        print("-- Recreating pointers for block number {} from disk...".format(block_number))
+        posting_lists_size_in_inverted_index = read_bytes_from_disk(self.__dir + "posting_lists_size_in_inverted_index-block-{}.txt".format(block_number))  #
+        frequencies_lists_size_in_inverted_index = read_bytes_from_disk(self.__dir + "frequencies_lists_size_in_inverted_index-block-{}.txt".format(block_number))  #
+        location_pointer_to_posting_freq_lists_in_inverted_index_gaps = read_bytes_from_disk(self.__dir + "location_pointer_to_posting_freq_lists_in_inverted_index-block-{}.txt".format(block_number))  #
+        location_pointer_to_posting_freq_lists_in_inverted_index = unGap(location_pointer_to_posting_freq_lists_in_inverted_index_gaps)
+
+        os.remove(self.__dir + "posting_lists_size_in_inverted_index-block-{}.txt".format(block_number))
+        os.remove(self.__dir + "frequencies_lists_size_in_inverted_index-block-{}.txt".format(block_number))
+        os.remove(self.__dir + "location_pointer_to_posting_freq_lists_in_inverted_index-block-{}.txt".format(block_number))
+
+
+        for i,key in enumerate(self.__blocksDictionaries[block_number].keys()):
+            self.__blocksDictionaries[block_number][key] = {}
+            self.__blocksDictionaries[block_number][key]["sizePL"] = posting_lists_size_in_inverted_index[i]
+            self.__blocksDictionaries[block_number][key]["sizeFreq"]= frequencies_lists_size_in_inverted_index[i]
+            self.__blocksDictionaries[block_number][key]["location"] = location_pointer_to_posting_freq_lists_in_inverted_index[i]
+
+
+    #############################################################
+    #############################################################
+
+
+
+
     def convert_bytes_block(self,block_number):
         """
         given a block number, converts an entire block of bytes from disk into,posting-frequency list
@@ -293,6 +369,11 @@ class IndexWriter:
         #print(block_number)
         path= self.__dir+ 'block-' + str(block_number) + '.txt'
 
+        ###################
+
+        # GET POINTERS FROM DISK
+        self.get_block_pointers_from_disk(block_number)
+
         #print(self.__blocksDictionaries)
         d = self.__blocksDictionaries.pop(block_number) # pointers
         #print(d)
@@ -301,22 +382,12 @@ class IndexWriter:
             #print(item[1]) # pointers
             block_dictionary[item[0]] = read_bytes_posting_list_from_disk(path, item[1]) ## ["posting_list .... , frequency_list.... ]
             #print(posting_frequency_list)
-            if item[0] == "going":
-                print("in convert_bytes_block")
-                print(block_dictionary[item[0]])
 
         #print(block_dictionary)
         return block_dictionary
-
-
-
     #############################################################
     #############################################################
     #############################################################
-
-
-
-
     def merge(self , dir):
         """ Merges SPIMI blocks into final inverted index """
         merge_completed = False
@@ -345,7 +416,7 @@ class IndexWriter:
         # inverted index is block number 0
         ####
 
-    #######
+    ####################################
     def merge_two_blocks(self,blkNumA, blkNumB):
         """
         given numbers of two blocks creates a merged block of the two on disk
@@ -358,22 +429,13 @@ class IndexWriter:
         block_dictionary = {}
 
         a_block_dictionary = self.convert_bytes_block(blkNumA) #
-        #print(a_block_dictionary)
         b_block_dictionary = self.convert_bytes_block(blkNumB) #
-        #print(b_block_dictionary)
-
-        print(a_block_dictionary)
 
         while len(a_block_dictionary) != 0 :
             item_a = a_block_dictionary.popitem()
             if b_block_dictionary.get(item_a[0]):
                 item_b = b_block_dictionary.pop(item_a[0])
                 block_dictionary[item_a[0]] = self.merge_term_postings_list(item_a[1],item_b)# merge term's posting lists
-
-
-            #if len(b_block_dictionary) != 0 :
-            #    item_b = b_block_dictionary.popitem()
-            #    block_dictionary[item_a[0]] = self.merge_term_postings_list(item_a[1],item_b[1])# merge term's posting lists
             else: # no more items in b_block_dictionary
                 item_pl = item_a[1][:int(len(item_a[1])/2)]
                 item_freq = item_a[1][int(len(item_a[1])/2):]
@@ -391,7 +453,6 @@ class IndexWriter:
         delete both from disk
         the merged block will be saved as the block number of blockA
         '''
-
         ## delete both blocks from disk
         self.delete_block(blkNumA)
         self.delete_block(blkNumB)
@@ -463,7 +524,7 @@ class IndexWriter:
 
     def deleteblocks(self):
         """ Delete directories and files under ./index_blocks"""
-        for root, directories, files in os.walk('./index_blocks'):
+        for root, directories, files in os.walk('./' + self.__dir):
             for f in files:
                 os.unlink(os.path.join(root, f))
             for directory in directories:
@@ -525,6 +586,7 @@ def read_bytes_from_disk(directory_and_path):
     with open(directory_and_path, "rb") as binary_file:
         bytes_array = binary_file.read()
         array = VBDecode(bytes_array)
+    #os.remove(directory_and_path)
     return array
 
 
@@ -534,7 +596,7 @@ def read_bytes_from_disk(directory_and_path):
 
 
 #alanspath="C:/Users/alany/OneDrive/Desktop/files/1000.txt"
-mypath = '/Users/yairwygoda/Desktop/1000000.txt'
+mypath = '/Users/yairwygoda/Desktop/10000000.txt'
 indexW = IndexWriter(mypath ,'index_blocks/')
 #print("deleting index files and directory")
 #indexW.removeIndex('index_blocks/')

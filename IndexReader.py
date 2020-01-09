@@ -8,12 +8,16 @@ class IndexReader:
     __dictionary = {}
     __dir = ""
     __inverted_index_path = ""
+    __number_of_documents = 0
     def __init__(self, dir):
         """Creates an IndexReader which will read from
         the given directory
         dir is the name of the directory in which all
         index files are located."""
         self.__dir = dir
+        f = open(dir + "number_of_documents.txt", "r")
+        numOfDocs = f.read()
+        self.__number_of_documents = int(numOfDocs)
         self.__inverted_index_path = dir + "spimi_inverted_index.txt"
         self.recreate_dictionary() # reconstitutes self.__dictionary from disk
         #print(self.__dictionary.keys())
@@ -69,7 +73,6 @@ class IndexReader:
             self.__dictionary[dict[i]]["sizeFreq"] = frequencies_lists_size_in_inverted_index[i]
             self.__dictionary[dict[i]]["location"] = location_pointer_to_posting_freq_lists_in_inverted_index[i]
 
-        print(self.__dictionary["going"])
 
     ##################################################
     ##################################################
@@ -127,11 +130,9 @@ class IndexReader:
     def getNumberOfDocuments(self):
         """Return the number of documents in the
         collection"""
-        #####
-        #DON'T FORGET TO WRITE THIS ONE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        ########
-####################################
+        return self.__number_of_documents
 
+####################################
 
 
 indexR = IndexReader('index_blocks/')
@@ -141,6 +142,9 @@ print(indexR.getDocsWithToken("going"))
 print(indexR.getTokenFrequency("going"))
 
 print(indexR.getTokenCollectionFrequency("going"))
+
+print("number of documents is : ", indexR.getNumberOfDocuments())
+
 
 
 

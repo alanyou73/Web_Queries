@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="134fe47c-8555-4e2a-ab51-322bc0723a0d" name="Default" comment="removed unused merge_blocks method">
+    <list default="true" id="134fe47c-8555-4e2a-ab51-322bc0723a0d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/IndexReader.py" afterPath="$PROJECT_DIR$/IndexReader.py" />
       <change beforePath="$PROJECT_DIR$/IndexWriter.py" afterPath="$PROJECT_DIR$/IndexWriter.py" />
@@ -21,8 +21,8 @@
       <file leaf-file-name="IndexWriter.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/IndexWriter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="536" column="39" lean-forward="false" selection-start-line="536" selection-start-column="39" selection-end-line="536" selection-end-column="39" />
+            <state relative-caret-position="287">
+              <caret line="170" column="20" lean-forward="false" selection-start-line="170" selection-start-column="20" selection-end-line="170" selection-end-column="20" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -30,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndexReader.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="IndexReader.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/IndexReader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-497">
-              <caret line="71" column="25" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+            <state relative-caret-position="289">
+              <caret line="66" column="92" lean-forward="false" selection-start-line="66" selection-start-column="72" selection-end-line="66" selection-end-column="92" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -42,7 +42,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -55,8 +55,8 @@
       <file leaf-file-name="PostingList.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PostingList.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="349" column="21" lean-forward="false" selection-start-line="349" selection-start-column="21" selection-end-line="349" selection-end-column="21" />
+            <state relative-caret-position="152">
+              <caret line="349" column="0" lean-forward="false" selection-start-line="349" selection-start-column="0" selection-end-line="349" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -76,21 +76,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>__blocksDictionaries</find>
-      <find>block_dictionary</find>
-      <find>calculate_tftd</find>
-      <find>sort_terms</find>
-      <find>young</find>
-      <find>xml</find>
-      <find>merge</find>
-      <find>size is</find>
-      <find>OrderedDict</find>
-      <find>write</find>
-      <find>write_byte_array_block_to_disk</find>
-      <find>delete_block</find>
-      <find>spimi_inverted_index.txt</find>
-      <find>merge_term_postings_list</find>
-      <find>block_to_byte_array</find>
       <find>[4, 100, 47, 49]</find>
       <find>{2:</find>
       <find>2:</find>
@@ -100,12 +85,27 @@
       <find>pl_freq_byteArray</find>
       <find>enumerate</find>
       <find>create_block_dictionary</find>
-      <find>read_bytes_from_disk</find>
       <find>get_terms_list</find>
       <find>write_byte_array_on_disk</find>
       <find>index_blocks/</find>
       <find>read_bytes_posting_list_from_disk</find>
+      <find>going</find>
+      <find>open</find>
+      <find>number_of_documents</find>
+      <find>docID</find>
+      <find>sleep</find>
+      <find>write_pointers_to_disk</find>
+      <find>read_bytes_from_disk</find>
+      <find>write_byte_array_block_to_disk</find>
+      <find>write_block_pointers_to_disk</find>
+      <find>self.__size_of_dic</find>
+      <find>get_block_pointers_from_disk</find>
+      <find>deleting block number</find>
+      <find>delete_block</find>
       <find>convert_bytes_block</find>
+      <find>size is :</find>
+      <find>block_to_byte_array</find>
+      <find>SPIMI completed! All blocks me</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -158,11 +158,6 @@
             <path>
               <item name="Web_Queries" type="b2602c69:ProjectViewProjectNode" />
               <item name="Web_Queries" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Web_Queries" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Web_Queries" type="462c0819:PsiDirectoryNode" />
-              <item name="index_blocks" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -270,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578316663128</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="modified methods to IndexReader:&#10;&#10;merge_two_blocks in Indexwriter&#10;SPIMI_Invert - sys.getsizeof(dictionary) ==&gt; size_of_block&#10;&#10;added methods to IndexReader:&#10;&#10;recreate_dictionary - decompress dictionary and inverted index pointers from disk an stores it in self.__dictionary&#10;getTokenFrequency-&#10;getTokenCollectionFrequency-">
+      <created>1578389885556</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1578389885556</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -286,15 +288,15 @@
     <frame x="41" y="23" width="1399" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20754717" sideWeight="0.49543676" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3011611" sideWeight="0.49543676" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27109975" sideWeight="0.3693759" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27109975" sideWeight="0.6306241" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3516624" sideWeight="0.42017415" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44117647" sideWeight="0.5798258" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286445" sideWeight="0.49492016" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53836316" sideWeight="0.65312046" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41432226" sideWeight="0.6095791" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39769822" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39769822" sideWeight="0.49709725" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12798265" sideWeight="0.5045632" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -325,7 +327,8 @@
     <MESSAGE value="added methods IndexWriter.py:&#10;create_block_dictionary - given an unordered dictionary ( where, keys are the terms and value is posting list with duplicates)&#10;                        1. writes block on disk ( using write_byte_array_block_to_disk() )&#10;                        2.returns block ordered dictionary where the key is the term&#10;                        and value is a dictionary with keys and values as follows, &quot;sizePL&quot; : posting list size in bytes&#10;                                                                                   &quot;sizeFreq&quot; : term frequency list&#10;                                                                                   &quot;location&quot; : pointer to the location of the posting list in the block on disk&#10;&#10;block_to_byte_array() - helper method for create_block_dictionary&#10;                         creating a byte array of posting list and frequency list,&#10;                         creates , blockPtrs[&quot;pl_freq_byteArray&quot;] ,   blockPtrs[&quot;sizePL&quot;] , blockPtrs[&quot;sizeFreq&quot;]&#10;                         and returns blockPtrs&#10;&#10;write_byte_array_block_to_disk - given a block number ,  writes posting list and frequency list  byte array to disk ,  where the file name is : 'block-' + str(block_number) + '.txt'&#10;&#10;convert_bytes_block -  given a block number, converts an entire block of bytes from disk into,posting-frequency list&#10;                       and returns a block_dictionary with term as key and [&quot;posting_list .... , frequency_list.... ]  as value&#10;&#10;read_bytes_posting_list_from_disk - helper method for convert_bytes_block ,&#10;                                    reads block bytes from disk&#10;                                    and returns posting_frequency_list&#10;&#10;&#10;delete_block -  given a block number removes block from disk&#10;&#10;posting_list_with_duplicates - given a postings_list and a frequencies_list returns one postings list with duplicates&#10;&#10;merge - Merges SPIMI blocks into final inverted index&#10;&#10;helper methods for merge():&#10;    merge_two_blocks - given numbers of two blocks creates a merged block of the two on disk&#10;&#10;write_byte_array_on_disk - given a byte array and a file name, creates a file named file_name and writes byte array in it&#10;&#10;&#10;removed methods: sort_terms , calculate_tftd , write_block_to_disk" />
     <MESSAGE value="added methods Dictionary.py:&#10;&#10;get_terms_list - given a compressed dictinary STR and its table , returns its terms as a list" />
     <MESSAGE value="removed unused merge_blocks method" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed unused merge_blocks method" />
+    <MESSAGE value="modified methods to IndexReader:&#10;&#10;merge_two_blocks in Indexwriter&#10;SPIMI_Invert - sys.getsizeof(dictionary) ==&gt; size_of_block&#10;&#10;added methods to IndexReader:&#10;&#10;recreate_dictionary - decompress dictionary and inverted index pointers from disk an stores it in self.__dictionary&#10;getTokenFrequency-&#10;getTokenCollectionFrequency-" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified methods to IndexReader:&#10;&#10;merge_two_blocks in Indexwriter&#10;SPIMI_Invert - sys.getsizeof(dictionary) ==&gt; size_of_block&#10;&#10;added methods to IndexReader:&#10;&#10;recreate_dictionary - decompress dictionary and inverted index pointers from disk an stores it in self.__dictionary&#10;getTokenFrequency-&#10;getTokenCollectionFrequency-" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -511,13 +514,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index_blocks/spimi_inverted_index.txt" />
-    <entry file="file://$PROJECT_DIR$/index_blocks/compressed_dictionary.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index_blocks/compressed_table.txt" />
     <entry file="file://$PROJECT_DIR$/index_blocks/table_byte_array.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -534,18 +530,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index_blocks/compressed_dictionary.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/PostingList.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="349" column="21" lean-forward="false" selection-start-line="349" selection-start-column="21" selection-end-line="349" selection-end-column="21" />
+        <state relative-caret-position="152">
+          <caret line="349" column="0" lean-forward="false" selection-start-line="349" selection-start-column="0" selection-end-line="349" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IndexReader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="66" column="92" lean-forward="false" selection-start-line="66" selection-start-column="72" selection-end-line="66" selection-end-column="92" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/IndexWriter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="536" column="39" lean-forward="false" selection-start-line="536" selection-start-column="39" selection-end-line="536" selection-end-column="39" />
+        <state relative-caret-position="287">
+          <caret line="170" column="20" lean-forward="false" selection-start-line="170" selection-start-column="20" selection-end-line="170" selection-end-column="20" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -557,16 +571,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/IndexReader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-497">
-          <caret line="71" column="25" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
