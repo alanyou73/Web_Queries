@@ -134,6 +134,7 @@ class IndexReader:
 
 ####################################
 
+'''
 
 indexR = IndexReader('index_blocks/')
 
@@ -144,6 +145,8 @@ print(indexR.getTokenFrequency("going"))
 print(indexR.getTokenCollectionFrequency("going"))
 
 print("number of documents is : ", indexR.getNumberOfDocuments())
+
+'''
 
 
 

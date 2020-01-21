@@ -131,7 +131,10 @@ class IndexWriter:
         block_number = 0
         dictionary = {}  # (term - postings list)
         docID = 0
-        size_of_block = sys.getsizeof(dictionary)
+        #size_of_block = sys.getsizeof(dictionary)
+
+        size_of_block = 0
+
         #f = file.read(1000000).split()
         #print(f)
         for doc in file:
@@ -160,7 +163,11 @@ class IndexWriter:
                     # If term occurs for the first time
                     if term not in dictionary:
                         dictionary[term] = [docID]  # Add term to dictionary, create new postings list, and add docID
-                        size_of_block += sys.getsizeof(term) + sys.getsizeof([]) + sys.getsizeof(docID)
+
+                        #size_of_block += sys.getsizeof(term) + sys.getsizeof([]) + sys.getsizeof(docID)
+
+                        size_of_block += sys.getsizeof(term)+ sys.getsizeof(docID)
+
                         # if term not in self.__dictionary:
                         #    self.__dictionary[term] = []
                     else:  # If term has a subsequent occurence
@@ -168,16 +175,20 @@ class IndexWriter:
                         size_of_block += sys.getsizeof(docID)
 
                 if size_of_block > self.__block_size_limit:
-                    print("\nblock {} size is : {} megabytes ".format( block_number ,sys.getsizeof(dictionary) * 10 ** (-6)))
+                    print("\nblock {} size is : {} megabytes ".format( block_number ,size_of_block * 10 ** (-6)))
 
                     self.__blocksDictionaries[block_number] = self.create_block_dictionary(dictionary,block_number)  # create block dictionary and write block of posting list and frequencies to disk
 
                     block_number += 1
                     dictionary = {}
-                    size_of_block = sys.getsizeof(dictionary)
+
+                    #size_of_block = sys.getsizeof(dictionary)
+
+                    size_of_block = 0
+
 
         if size_of_block > sys.getsizeof(dictionary) : # if dictionary's size is smaller than block size i.e. last block
-            print("\nblock size is : {} megabytes ".format(block_number,sys.getsizeof(dictionary) * 10 ** (-6)))
+            print("\nblock size is : {} megabytes ".format(block_number,size_of_block * 10 ** (-6)))
 
             self.__blocksDictionaries[block_number] = self.create_block_dictionary(dictionary,block_number) # create block dictionary and write block of posting list and frequencies to disk
 
@@ -214,7 +225,7 @@ class IndexWriter:
             blockByteArray+= block_dictionary[term]["pl_freq_byteArray"] ## append current byte array to block array
             block_dictionary[term].pop("pl_freq_byteArray")
 
-
+        '''
         ########       TESTING SIZE OF BLOCK DICTIONARY             ##########
         size_of_block = sys.getsizeof({})
         for term in block_dictionary.items():
@@ -228,6 +239,9 @@ class IndexWriter:
         size = size_of_block*10**(-6)
         print("\nblock_dictionary {} size is : {} megabytes ".format(block_number, size ))
         ########    END   TESTING SIZE OF BLOCK DICTIONARY             ##########
+
+        
+        '''
 
 
         ###write block to disk
@@ -596,8 +610,8 @@ def read_bytes_from_disk(directory_and_path):
 
 
 #alanspath="C:/Users/alany/OneDrive/Desktop/files/1000.txt"
-mypath = '/Users/yairwygoda/Desktop/10000000.txt'
-indexW = IndexWriter(mypath ,'index_blocks/')
+#mypath = '/Users/yairwygoda/Desktop/1000000.txt'
+#indexW = IndexWriter(mypath ,'index_blocks/')
 #print("deleting index files and directory")
 #indexW.removeIndex('index_blocks/')
 
