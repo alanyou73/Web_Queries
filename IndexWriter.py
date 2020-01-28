@@ -20,16 +20,6 @@ from datetime import datetime
 
 class IndexWriter:
     __block_size_limit = 4294967296 # 4GB
-    #__block_size_limit = 2147483648 # 2GB
-    #__block_size_limit = 1073741824 # 1GB
-    #__block_size_limit = 536870912 # 0.5GB
-    #__block_size_limit = 268435456 # 0.25GB
-    #__block_size_limit = 107374182 # 0.1GB
-    #__block_size_limit = 3000000  # 1MB
-
-
-    #__block_size_limit = 50000  # 50 KB
-    #__block_size_limit = 10000  # 10 KB
 
     __dir =""
     __dictionary = {}

@@ -8,7 +8,7 @@ class IndexSearcher:
         """Constructor.
         iReader is the IndexReader object on which the
         search should be performed"""
-        self.__index_reader = indexR
+        self.__index_reader = iReader
 
 
     def vectorSpaceSearch(self, query, k):
@@ -20,16 +20,17 @@ class IndexSearcher:
 
         q = [t.lower() for t in list(dict.fromkeys(query.split()))]
 
-        print(q)
-
         #calculate ltc for query
         list_of_wtq = {}
         for term in q:
             list_of_wtq[term]= self.log_frequency_weighing_in_query(q,term)
 
-        #print(list_of_wtq)
 
         normal = self.calc_normal(list_of_wtq.values())
+        if normal == 0: # the query does not exist in any document
+            return 0
+
+
         for key in list_of_wtq.keys():
             list_of_wtq[key] = list_of_wtq[key]/normal
 
@@ -68,6 +69,9 @@ class IndexSearcher:
             count+=1
 
         return tuple(top_k_scores)
+
+
+
     #######
     # helper methods
     #######
@@ -104,11 +108,18 @@ class IndexSearcher:
 ###########################
 
 
+'''
+
 indexR = IndexReader('index_blocks/')
 
 searcher = IndexSearcher(indexR)
 
 #searcher.vectorSpaceSearch("i love fish",5)
 
-score =searcher.vectorSpaceSearch("Look forward to using for a future kayak trip",5)
+score =searcher.vectorSpaceSearch("i",5)
 print(score)
+
+
+'''
+
+

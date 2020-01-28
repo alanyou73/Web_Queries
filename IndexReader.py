@@ -134,6 +134,10 @@ class IndexReader:
 
 ####################################
 
+
+#indexR = IndexReader('index_blocks/')
+
+#print("number of documents is : ", indexR.getNumberOfDocuments())
 '''
 
 indexR = IndexReader('index_blocks/')
