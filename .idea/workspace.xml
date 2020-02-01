@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="134fe47c-8555-4e2a-ab51-322bc0723a0d" name="Default" comment="bug fix in IndexSearcher, division by zero">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/IndexSearcher.py" afterPath="$PROJECT_DIR$/IndexSearcher.py" />
+      <change beforePath="$PROJECT_DIR$/IndexWriter.py" afterPath="$PROJECT_DIR$/IndexWriter.py" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Web_Queries" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="IndexWriter.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/IndexWriter.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="589" column="1" lean-forward="false" selection-start-line="589" selection-start-column="1" selection-end-line="589" selection-end-column="1" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IndexReader.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/IndexReader.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-8">
+              <caret line="123" column="65" lean-forward="false" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="65" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IndexSearcher.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/IndexSearcher.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="120" column="12" lean-forward="false" selection-start-line="120" selection-start-column="12" selection-end-line="120" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PostingList.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PostingList.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="32" lean-forward="false" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Dictionary.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Dictionary.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="245">
+              <caret line="124" column="19" lean-forward="false" selection-start-line="124" selection-start-column="19" selection-end-line="124" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>sleep</find>
+      <find>write_pointers_to_disk</find>
+      <find>read_bytes_from_disk</find>
+      <find>self.__size_of_dic</find>
+      <find>get_block_pointers_from_disk</find>
+      <find>deleting block number</find>
+      <find>delete_block</find>
+      <find>convert_bytes_block</find>
+      <find>size is :</find>
+      <find>block_to_byte_array</find>
+      <find>SPIMI completed! All blocks me</find>
+      <find>block_dictionary</find>
+      <find>megabytes</find>
+      <find>IndexWriter</find>
+      <find>log_frequency_weighing_in_document</find>
+      <find>1</find>
+      <find>term</find>
+      <find>log_frequency_weighing_in_query</find>
+      <find>print</find>
+      <find>__index_reader</find>
+      <find>__block_size_limit</find>
+      <find>size_of_block</find>
+      <find>write_byte_array_block_to_disk</find>
+      <find>location_pointer_to_posting_freq_lists_in_inverted_index</find>
+      <find>posting_lists_size_in_inverted_index</find>
+      <find>write_block_pointers_to_disk</find>
+      <find>VBEncode</find>
+      <find>gettokenfre</find>
+      <find>getdocswithtoken</find>
+      <find>sizePL</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="yair-updated-branch" />
+      </map>
+    </option>
+    <push-targets>
+      <push-target-info target-remote="origin" target-branch="yairs-branch" repo="$PROJECT_DIR$" source="master" />
+    </push-targets>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Dictionary.py" />
+        <option value="$PROJECT_DIR$/PostingList.py" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/IndexReader.py" />
+        <option value="$PROJECT_DIR$/IndexWriter.py" />
+        <option value="$PROJECT_DIR$/IndexSearcher.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="38" />
+    <option name="y" value="23" />
+    <option name="width" value="1402" />
+    <option name="height" value="877" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Web_Queries" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Web_Queries" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Web_Queries" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Web_Queries" type="462c0819:PsiDirectoryNode" />
+              <item name="index_blocks" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="WQI" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Web_Queries" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/IndexSearcher.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="134fe47c-8555-4e2a-ab51-322bc0723a0d" name="Default" comment="" />
+      <created>1577439593984</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1577439593984</updated>
+    </task>
+    <task id="LOCAL-00001" summary="add index">
+      <created>1577439840411</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1577439840411</updated>
+    </task>
+    <task id="LOCAL-00002" summary="check">
+      <created>1577440495343</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1577440495343</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added alan's path for testing">
+      <created>1577446138474</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1577446138476</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added methods IndexWriter.py:&#10;create_block_dictionary - given an unordered dictionary ( where, keys are the terms and value is posting list with duplicates)&#10;                        1. writes block on disk ( using write_byte_array_block_to_disk() )&#10;                        2.returns block ordered dictionary where the key is the term&#10;                        and value is a dictionary with keys and values as follows, &quot;sizePL&quot; : posting list size in bytes&#10;                                                                                   &quot;sizeFreq&quot; : term frequency list&#10;                                                                                   &quot;location&quot; : pointer to the location of the posting list in the block on disk&#10;&#10;block_to_byte_array() - helper method for create_block_dictionary&#10;                         creating a byte array of posting list and frequency list,&#10;                         creates , blockPtrs[&quot;pl_freq_byteArray&quot;] ,   blockPtrs[&quot;sizePL&quot;] , blockPtrs[&quot;sizeFreq&quot;]&#10;                         and returns blockPtrs&#10;&#10;write_byte_array_block_to_disk - given a block number ,  writes posting list and frequency list  byte array to disk ,  where the file name is : 'block-' + str(block_number) + '.txt'&#10;&#10;convert_bytes_block -  given a block number, converts an entire block of bytes from disk into,posting-frequency list&#10;                       and returns a block_dictionary with term as key and [&quot;posting_list .... , frequency_list.... ]  as value&#10;&#10;read_bytes_posting_list_from_disk - helper method for convert_bytes_block ,&#10;                                    reads block bytes from disk&#10;                                    and returns posting_frequency_list&#10;&#10;&#10;delete_block -  given a block number removes block from disk&#10;&#10;posting_list_with_duplicates - given a postings_list and a frequencies_list returns one postings list with duplicates&#10;&#10;merge - Merges SPIMI blocks into final inverted index&#10;&#10;helper methods for merge():&#10;    merge_two_blocks - given numbers of two blocks creates a merged block of the two on disk&#10;&#10;write_byte_array_on_disk - given a byte array and a file name, creates a file named file_name and writes byte array in it&#10;&#10;&#10;removed methods: sort_terms , calculate_tftd , write_block_to_disk">
+      <created>1578312984763</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1578312984763</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added methods IndexWriter.py:&#10;create_block_dictionary - given an unordered dictionary ( where, keys are the terms and value is posting list with duplicates)&#10;                        1. writes block on disk ( using write_byte_array_block_to_disk() )&#10;                        2.returns block ordered dictionary where the key is the term&#10;                        and value is a dictionary with keys and values as follows, &quot;sizePL&quot; : posting list size in bytes&#10;                                                                                   &quot;sizeFreq&quot; : term frequency list&#10;                                                                                   &quot;location&quot; : pointer to the location of the posting list in the block on disk&#10;&#10;block_to_byte_array() - helper method for create_block_dictionary&#10;                         creating a byte array of posting list and frequency list,&#10;                         creates , blockPtrs[&quot;pl_freq_byteArray&quot;] ,   blockPtrs[&quot;sizePL&quot;] , blockPtrs[&quot;sizeFreq&quot;]&#10;                         and returns blockPtrs&#10;&#10;write_byte_array_block_to_disk - given a block number ,  writes posting list and frequency list  byte array to disk ,  where the file name is : 'block-' + str(block_number) + '.txt'&#10;&#10;convert_bytes_block -  given a block number, converts an entire block of bytes from disk into,posting-frequency list&#10;                       and returns a block_dictionary with term as key and [&quot;posting_list .... , frequency_list.... ]  as value&#10;&#10;read_bytes_posting_list_from_disk - helper method for convert_bytes_block ,&#10;                                    reads block bytes from disk&#10;                                    and returns posting_frequency_list&#10;&#10;&#10;delete_block -  given a block number removes block from disk&#10;&#10;posting_list_with_duplicates - given a postings_list and a frequencies_list returns one postings list with duplicates&#10;&#10;merge - Merges SPIMI blocks into final inverted index&#10;&#10;helper methods for merge():&#10;    merge_two_blocks - given numbers of two blocks creates a merged block of the two on disk&#10;&#10;write_byte_array_on_disk - given a byte array and a file name, creates a file named file_name and writes byte array in it&#10;&#10;&#10;removed methods: sort_terms , calculate_tftd , write_block_to_disk">
+      <created>1578313098590</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1578313098591</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added methods Dictionary.py:&#10;&#10;get_terms_list - given a compressed dictinary STR and its table , returns its terms as a list">
+      <created>1578313733455</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1578313733455</updated>
+    </task>
+    <task id="LOCAL-00007" summary="removed unused merge_blocks method">
+      <created>1578316663128</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1578316663128</updated>
+    </task>
+    <task id="LOCAL-00008" summary="modified methods to IndexReader:&#10;&#10;merge_two_blocks in Indexwriter&#10;SPIMI_Invert - sys.getsizeof(dictionary) ==&gt; size_of_block&#10;&#10;added methods to IndexReader:&#10;&#10;recreate_dictionary - decompress dictionary and inverted index pointers from disk an stores it in self.__dictionary&#10;getTokenFrequency-&#10;getTokenCollectionFrequency-">
+      <created>1578389885556</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1578389885556</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added to IndexWriter init - write number of documents on disk&#10;in IndexWriter - modified deleteblocks&#10;               - added : write_block_pointers_to_disk , get_block_pointers_from_disk&#10;&#10;in IndexReader added method - getNumberOfDocuments">
+      <created>1578552103867</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1578552103867</updated>
+    </task>
+    <task id="LOCAL-00010" summary="new IndexSearcher class has been added">
+      <created>1579616002066</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1579616002067</updated>
+    </task>
+    <task id="LOCAL-00011" summary="bug fix in IndexSearcher, division by zero">
+      <created>1580219149772</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1580219149773</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="38" y="23" width="1402" height="877" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2519913" sideWeight="0.49543676" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3030303" sideWeight="0.38015932" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3030303" sideWeight="0.6198407" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938075" sideWeight="0.49746928" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29776022" sideWeight="0.46053585" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985657" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39769822" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12798265" sideWeight="0.5045632" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add index" />
+    <MESSAGE value="check" />
+    <MESSAGE value="added alan's path for testing" />
+    <MESSAGE value="added methods IndexWriter.py:&#10;create_block_dictionary - given an unordered dictionary ( where, keys are the terms and value is posting list with duplicates)&#10;                        1. writes block on disk ( using write_byte_array_block_to_disk() )&#10;                        2.returns block ordered dictionary where the key is the term&#10;                        and value is a dictionary with keys and values as follows, &quot;sizePL&quot; : posting list size in bytes&#10;                                                                                   &quot;sizeFreq&quot; : term frequency list&#10;                                                                                   &quot;location&quot; : pointer to the location of the posting list in the block on disk&#10;&#10;block_to_byte_array() - helper method for create_block_dictionary&#10;                         creating a byte array of posting list and frequency list,&#10;                         creates , blockPtrs[&quot;pl_freq_byteArray&quot;] ,   blockPtrs[&quot;sizePL&quot;] , blockPtrs[&quot;sizeFreq&quot;]&#10;                         and returns blockPtrs&#10;&#10;write_byte_array_block_to_disk - given a block number ,  writes posting list and frequency list  byte array to disk ,  where the file name is : 'block-' + str(block_number) + '.txt'&#10;&#10;convert_bytes_block -  given a block number, converts an entire block of bytes from disk into,posting-frequency list&#10;                       and returns a block_dictionary with term as key and [&quot;posting_list .... , frequency_list.... ]  as value&#10;&#10;read_bytes_posting_list_from_disk - helper method for convert_bytes_block ,&#10;                                    reads block bytes from disk&#10;                                    and returns posting_frequency_list&#10;&#10;&#10;delete_block -  given a block number removes block from disk&#10;&#10;posting_list_with_duplicates - given a postings_list and a frequencies_list returns one postings list with duplicates&#10;&#10;merge - Merges SPIMI blocks into final inverted index&#10;&#10;helper methods for merge():&#10;    merge_two_blocks - given numbers of two blocks creates a merged block of the two on disk&#10;&#10;write_byte_array_on_disk - given a byte array and a file name, creates a file named file_name and writes byte array in it&#10;&#10;&#10;removed methods: sort_terms , calculate_tftd , write_block_to_disk" />
+    <MESSAGE value="added methods Dictionary.py:&#10;&#10;get_terms_list - given a compressed dictinary STR and its table , returns its terms as a list" />
+    <MESSAGE value="removed unused merge_blocks method" />
+    <MESSAGE value="modified methods to IndexReader:&#10;&#10;merge_two_blocks in Indexwriter&#10;SPIMI_Invert - sys.getsizeof(dictionary) ==&gt; size_of_block&#10;&#10;added methods to IndexReader:&#10;&#10;recreate_dictionary - decompress dictionary and inverted index pointers from disk an stores it in self.__dictionary&#10;getTokenFrequency-&#10;getTokenCollectionFrequency-" />
+    <MESSAGE value="added to IndexWriter init - write number of documents on disk&#10;in IndexWriter - modified deleteblocks&#10;               - added : write_block_pointers_to_disk , get_block_pointers_from_disk&#10;&#10;in IndexReader added method - getNumberOfDocuments" />
+    <MESSAGE value="new IndexSearcher class has been added" />
+    <MESSAGE value="bug fix in IndexSearcher, division by zero" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fix in IndexSearcher, division by zero" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="6" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index_blocks/compressed_table.txt" />
+    <entry file="file://$PROJECT_DIR$/index_blocks/table_byte_array.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dictionary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1995">
+          <caret line="133" column="18" lean-forward="false" selection-start-line="133" selection-start-column="4" selection-end-line="133" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostingList.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="349" column="21" lean-forward="false" selection-start-line="349" selection-start-column="21" selection-end-line="349" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IndexWriter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="117" column="0" lean-forward="true" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IndexWriter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="203" column="36" lean-forward="true" selection-start-line="203" selection-start-column="36" selection-end-line="203" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IndexReader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IndexWriter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4695">
+          <caret line="326" column="43" lean-forward="true" selection-start-line="326" selection-start-column="43" selection-end-line="326" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostingList.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4920">
+          <caret line="328" column="9" lean-forward="false" selection-start-line="328" selection-start-column="4" selection-end-line="328" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dictionary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1935">
+          <caret line="129" column="27" lean-forward="false" selection-start-line="129" selection-start-column="27" selection-end-line="129" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../תרגילים/תרגיל 1/ex1_301593950/tester/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index_blocks/block-pl-3.txt" />
+    <entry file="file://$PROJECT_DIR$/index_blocks/block-pl-2.txt" />
+    <entry file="file://$PROJECT_DIR$/index_blocks/block-term-1.txt" />
+    <entry file="file://$PROJECT_DIR$/index_blocks/block-pl-1.txt" />
+    <entry file="file://$PROJECT_DIR$/index_blocks/block-term-2.txt" />
+    <entry file="file://$PROJECT_DIR$/index_blocks/block-pl-0.txt" />
+    <entry file="file://$PROJECT_DIR$/index_blocks/block-term-0.txt" />
+    <entry file="file://$PROJECT_DIR$/index_blocks/block-docIDs-0" />
+    <entry file="file://$PROJECT_DIR$/index_blocks/block-docIDs-1" />
+    <entry file="file://$PROJECT_DIR$/index_blocks/block-frequencies-1.txt" />
+    <entry file="file://$PROJECT_DIR$/block-docIDs-1.txt" />
+    <entry file="file://$PROJECT_DIR$/block-docIDs-7.txt" />
+    <entry file="file://$PROJECT_DIR$/block-docIDs-0.txt" />
+    <entry file="file://$PROJECT_DIR$/block-docIDs-3.txt" />
+    <entry file="file://$PROJECT_DIR$/block-docIDs-5.txt" />
+    <entry file="file://$PROJECT_DIR$/block-docIDs-9.txt" />
+    <entry file="file://$PROJECT_DIR$/block-docIDs-8.txt" />
+    <entry file="file://$PROJECT_DIR$/block-docIDs-4.txt" />
+    <entry file="file://$PROJECT_DIR$/test.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index_blocks/block-frequencies-2.txt" />
+    <entry file="file://$PROJECT_DIR$/index_blocks/block-docIDs-1.txt" />
+    <entry file="file://$PROJECT_DIR$/index_blocks/block-docIDs-0.txt" />
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="1661" column="0" lean-forward="false" selection-start-line="1661" selection-start-column="0" selection-end-line="1661" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index_blocks/block-3.txt" />
+    <entry file="file://$PROJECT_DIR$/index_blocks/block-1.txt" />
+    <entry file="file://$PROJECT_DIR$/index_blocks/block-7.txt" />
+    <entry file="file://$PROJECT_DIR$/index_blocks/block-2.txt" />
+    <entry file="file://$PROJECT_DIR$/index_blocks/block-0.txt" />
+    <entry file="file://$PROJECT_DIR$/index_blocks/spimi_inverted_index.txt" />
+    <entry file="file://$PROJECT_DIR$/index_blocks/compressed_table.txt" />
+    <entry file="file://$PROJECT_DIR$/index_blocks/table_byte_array.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index_blocks/compressed_dictionary.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dictionary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="124" column="19" lean-forward="false" selection-start-line="124" selection-start-column="19" selection-end-line="124" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PostingList.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="32" lean-forward="false" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IndexReader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="123" column="65" lean-forward="false" selection-start-line="123" selection-start-column="8" selection-end-line="123" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IndexWriter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="589" column="1" lean-forward="false" selection-start-line="589" selection-start-column="1" selection-end-line="589" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IndexSearcher.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="120" column="12" lean-forward="false" selection-start-line="120" selection-start-column="12" selection-end-line="120" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
