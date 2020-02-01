@@ -29,7 +29,6 @@ class IndexWriter:
     __size_of_dic = 0
 
     ####
-
     def __init__(self, inputFile, dir):
 
         """Given a collection of documents, creates an on disk index
@@ -287,6 +286,7 @@ class IndexWriter:
         currBlock.write(block_as_byte_array)
         currBlock.close()
 
+
     #############################################################
     #############################################################
 
@@ -513,6 +513,7 @@ class IndexWriter:
     def deleteblocks(self):
         """ Delete directories and files under ./index_blocks"""
         for root, directories, files in os.walk('./' + self.__dir):
+
             for f in files:
                 os.unlink(os.path.join(root, f))
             for directory in directories:
@@ -599,3 +600,4 @@ with open("index_blocks/block-0.txt", "rb") as binary_file:
     couple_bytes = binary_file.read(2)
     print(couple_bytes)
 '''
+
